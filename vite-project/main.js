@@ -60,10 +60,16 @@ getData(URL)
 
 
 function voteAvg (){
-  
+  //create a function to display appropriate vote average (7.5)
 }
 
+function displayMov(){
 
+}
+
+function guessMov(){
+  
+}
  
 
 
