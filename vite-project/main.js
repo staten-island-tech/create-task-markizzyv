@@ -4,27 +4,11 @@ import viteLogo from '/vite.svg'
 
 // const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;  
 
-const URL = `https://imdb-api.com/en/API/Top250Movies/k_12345678`
+const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;
 
-async function getData(URL){
-  try {
-    const response = await fetch(URL);
-    if (response.status !=200){
-     
-    }
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-  
-  }
-}
-getData(URL);
+// const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;
 
-
-/* const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;
-
-//insert display cards
+// insert display cards
 function movInsert(arr) {
 
 
@@ -75,10 +59,12 @@ getData(URL)
 
 
 
+function voteAvg (){
+  
+}
 
 
-
- */
+ 
 
 
 
@@ -106,3 +92,32 @@ document.querySelector('#app').innerHTML = `
 setupCounter(document.querySelector('#counter'))
  */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* async function getData(URL){
+  try {
+    const response = await fetch(URL);
+    if (response.status !=200){
+     
+    }
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+  
+  }
+}
+getData(URL); */
