@@ -1,22 +1,17 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
+import { DOMSelectors } from './dom.js';
+import { genres } from './arr.js';
 
 // const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;  
-
 const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;
-
-// const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;
-
 // insert display cards
+DOMSelectors.form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
 function movInsert(arr) {
-
-
   document.querySelector(".flex-container").innerHTML = '';
-  
-  
       arr.forEach((card)=> {
-        const {title, poster_path, vote_average} = card;
+        const {title, poster_path,} = card;
         const movieEl = document.createElement('div');
         movieEl.classList.add('movie');
         movieEl.innerHTML = 
@@ -24,12 +19,10 @@ function movInsert(arr) {
       ` <div class= "card">
       <h1 class ="movTitle">${title}</h1>  
       <img src = "https://image.tmdb.org/t/p/w500${poster_path}" class ="movImg" alt = "">
-      <p class ="movVoteAverage">${vote_average}</p>
+    
       </div>
     `
       document.querySelector(".flex-container").appendChild(movieEl);
-  
-
   });
 }
 
@@ -58,19 +51,14 @@ async function getData(URL) {
 getData(URL)
 
 
-
-function voteAvg (){
-  //create a function to display appropriate vote average (7.5)
+function searchGenre (){
+//create a database for when genre is correct nah mean 
 }
 
-function displayMov(){
 
-}
 
-function guessMov(){
-  
-}
- 
+
+
 
 
 
