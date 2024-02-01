@@ -50,18 +50,9 @@ async function submitVoteAvg() {
 submitVoteAvg();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+function roundVote(){
+  
+}
 
 
 
