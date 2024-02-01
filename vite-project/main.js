@@ -18,7 +18,7 @@ async function getData() {
 
 async function submitVoteAvg() {
     const movies = await getData();
-    const randomMovie = movies[Math.floor(Math.random() * movies.length)]; //????
+    const randomMovie = movies[Math.floor(Math.random() * movies.length)]; //wha is dis????
 
 
     document.querySelector(".flex-container").innerHTML =  `${randomMovie.title}`
