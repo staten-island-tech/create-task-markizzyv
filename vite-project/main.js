@@ -1,7 +1,87 @@
 import './style.css'
 import { DOMSelectors } from './dom.js';
-import { genres } from './arr.js';
 
+
+async function getData() {
+  const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;
+
+    try {
+        const response = await fetch(URL);
+        const data = await response.json();
+        return data.results;
+    } catch (error) {
+        console.error("Error Data Cannot Be Found");
+        return data; 
+    }
+}
+
+
+async function submitVoteAvg() {
+    const movies = await getData();
+    const randomMovie = movies[Math.floor(Math.random() * movies.length)]; //????
+
+
+    document.querySelector(".flex-container").innerHTML =  `${randomMovie.title}`
+
+    DOMSelectors.poster.src = `https://image.tmdb.org/t/p/w500${randomMovie.poster_path}`;
+    DOMSelectors.poster.alt = randomMovie.title;
+    document.querySelector(".flex-container").appendChild(DOMSelectors.poster);
+
+
+    const real = randomMovie.vote_average;
+
+ //submit button for game
+
+ DOMSelectors.form.addEventListener("submit", function (event) {
+  event.preventDefault();
+});
+ document.getElementById("guess-btn").addEventListener("click", function() {
+ 
+  const answer = document.getElementById("search-btn").value;
+ 
+    if (answer === real.toString()) {
+      document.querySelector(".feedback").textContent = 'Congratulations Nerd! You are correct!';
+    } else {
+       document.querySelector(".feedback").textContent = `rlly dude, the actual voting average is ${real}.`;
+    }
+})
+}
+
+submitVoteAvg();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 // const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;  
 const URL = `https://api.themoviedb.org/3/movie/popular?api_key=26906062d4fd4de4f857063554f6f6d3&page=1`;
 // insert display cards
@@ -51,67 +131,12 @@ async function getData(URL) {
 getData(URL)
 
 
+
+
+
 function searchGenre (){
-//create a database for when genre is correct nah mean 
-}
+//create a database for when genr
 
+} */
+ 
 
-
-
-
-
-
-
-
-/* import { setupCounter } from './counter.js'
-
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
-
-setupCounter(document.querySelector('#counter'))
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* async function getData(URL){
-  try {
-    const response = await fetch(URL);
-    if (response.status !=200){
-     
-    }
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-  
-  }
-}
-getData(URL); */
